@@ -1,4 +1,4 @@
-module github.com/iotserver-org/iotserver-tcp-driver
+module github.com/LMgateways/iotserver-tcp-driver
 
 go 1.18
 

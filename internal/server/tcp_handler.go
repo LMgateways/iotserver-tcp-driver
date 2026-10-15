@@ -21,8 +21,8 @@ import (
 	"io"
 	"net"
 
-	drivercfg "github.com/iotserver-org/iotserver-tcp-driver/config"
-	"github.com/iotserver-org/iotserver-tcp-driver/internal/device"
+	drivercfg "github.com/LMgateways/iotserver-tcp-driver/config"
+	"github.com/LMgateways/iotserver-tcp-driver/internal/device"
 )
 
 // TcpDataHandler 业务处理回调：收到一帧合法 JSON 后由驱动实现处理（上报平台等）。

@@ -24,9 +24,9 @@ import (
 	"github.com/winc-link/hummingbird-sdk-go/model"
 	"github.com/winc-link/hummingbird-sdk-go/service"
 
-	drivercfg "github.com/iotserver-org/iotserver-tcp-driver/config"
-	"github.com/iotserver-org/iotserver-tcp-driver/internal/device"
-	"github.com/iotserver-org/iotserver-tcp-driver/internal/server"
+	drivercfg "github.com/LMgateways/iotserver-tcp-driver/config"
+	"github.com/LMgateways/iotserver-tcp-driver/internal/device"
+	"github.com/LMgateways/iotserver-tcp-driver/internal/server"
 )
 
 // TcpProtocolDriver TCP 协议驱动。

@@ -22,7 +22,7 @@ import (
 
 	"github.com/winc-link/hummingbird-sdk-go/service"
 
-	drivercfg "github.com/iotserver-org/iotserver-tcp-driver/config"
+	drivercfg "github.com/LMgateways/iotserver-tcp-driver/config"
 )
 
 var GlobalDriverService *service.DriverService
