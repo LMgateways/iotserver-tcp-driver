@@ -19,7 +19,7 @@ package config
 import (
 	"encoding/json"
 
-	"github.com/winc-link/hummingbird-sdk-go/service"
+	"github.com/LMgateways/iotserver-sdk-go/service"
 )
 
 var baseConfig *BaseConfig

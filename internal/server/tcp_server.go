@@ -20,7 +20,7 @@ import (
 	"net"
 	"sync"
 
-	"github.com/winc-link/hummingbird-sdk-go/service"
+	"github.com/LMgateways/iotserver-sdk-go/service"
 
 	drivercfg "github.com/LMgateways/iotserver-tcp-driver/config"
 )
