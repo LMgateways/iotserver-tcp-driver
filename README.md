@@ -100,3 +100,31 @@ go build ./...
 ```
 
 驱动依赖平台下发的配置（`/etc/driver/res/configuration.toml`），**不能脱离平台单独跑**。
+
+## 自动构建镜像（GitHub Actions）
+
+仓库自带 workflow，**打 tag 即自动构建并推送镜像到 ghcr.io**，用内置 `GITHUB_TOKEN`
+认证，不需要配置任何 secret：
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+产出镜像：`ghcr.io/lmgateways/<仓库名>:1.0.0`（同时打 `1.0` 和 `latest`）。
+
+推到 `main` 或提 PR 时**只构建不推送**，用来提前发现构建失败。
+
+> ⚠️ ghcr 的包**默认是私有的**，第一次推送后需要手动改一次可见性：
+> 打开 `https://github.com/orgs/LMGateways/packages` → 选中该包 →
+> Package settings → Change visibility → Public。
+> 否则平台拉取镜像会失败（或者你需要在平台上配置 ghcr 凭据）。
+>
+> 改过可见性之后，后续版本不用再改。
+
+## 本地构建（不走 CI 时）
+
+```bash
+make build IMAGE=<你的镜像地址>    # 只构建
+make push  IMAGE=<你的镜像地址>    # 构建并推送
+```

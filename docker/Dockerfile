@@ -1,14 +1,20 @@
 # TCP 协议驱动镜像
 #
-# 构建并推送（把 IMAGE 换成你自己的仓库地址）：
-#   docker buildx build --platform linux/amd64 \
-#     -t IMAGE -f docker/Dockerfile . --push
+# 本地构建：
+#   make build IMAGE=iotserver-tcp-driver:latest
+# 推送（CI 会自动做，见 .github/workflows/docker-publish.yml）：
+#   make push IMAGE=ghcr.io/lmgateways/iotserver-tcp-driver:v1.0.0
 
 FROM golang:1.24-alpine AS builder
+
+# 拉 Go 依赖用的代理：国内网络用 goproxy.cn，CI 环境可用默认（proxy.golang.org）
+ARG GOPROXY=https://goproxy.cn,direct
+
 WORKDIR /src
 
+# 先拷依赖清单，利用层缓存：只改代码时不重下依赖
 COPY go.mod go.sum ./
-RUN go env -w GOPROXY=https://goproxy.cn,direct && go mod download
+RUN go env -w GOPROXY=${GOPROXY} && go mod download
 
 COPY . .
 RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/driver ./cmd
