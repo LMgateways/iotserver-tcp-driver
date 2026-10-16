@@ -2,7 +2,7 @@ module github.com/LMgateways/iotserver-tcp-driver
 
 go 1.23
 
-require github.com/LMgateways/iotserver-sdk-go v1.0.0
+require github.com/LMgateways/iotserver-sdk-go v1.0.1
 
 require (
 	github.com/BurntSushi/toml v1.3.2 // indirect
